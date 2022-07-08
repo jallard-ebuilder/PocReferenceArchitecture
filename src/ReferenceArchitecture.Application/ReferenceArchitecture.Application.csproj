@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="PPM.Eventing.Kafka.Hosting" Version="1.1.2" />
+      <PackageReference Include="PPM.HealthChecks" Version="1.1.2" />
+      <PackageReference Include="PPM.WebApi.Logging" Version="1.1.2" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ReferenceArchitecture.Core\ReferenceArchitecture.Core.csproj" />
+      <ProjectReference Include="..\ReferenceArchitecture.Infrastructure\ReferenceArchitecture.Infrastructure.csproj" />
+    </ItemGroup>
+
+</Project>

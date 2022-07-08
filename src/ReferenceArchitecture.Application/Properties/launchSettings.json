@@ -1,0 +1,14 @@
+﻿{
+  "profiles": {
+    "Demo1.Application": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7108;http://localhost:5238",
+      "launchUrl" : "api/v1/demo",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
