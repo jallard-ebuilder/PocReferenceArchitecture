@@ -7,14 +7,6 @@ using PPM.WebApi.Logging.Extensions;
 const string serviceRootUrl = "/api/v1/demo";
 const string serviceName = "Platform Service Reference Architecture";
 
-/*
- * NOTES
- *  - health doesn't appear in swagger
- *      https://www.codenesium.com/blog/posts/how-to-add-health-checks-asp-net-core-with-swagger-support/
- *  - add error handling around build and/or run, to make sure startup exceptions are caught and logged
- *          logging docs refers to ServiceUtility, which i can't find
- */
-
 // DEMO: Logging
 // toggle the ASPNETCORE_ENVIRONMENT environment variable between DEVELOPMENT and PRODUCTION
 // to see the difference in logging. 
@@ -67,8 +59,13 @@ builder.Services
     .AddSerilogRequestLogging()
 
     // DEMO: kafka
+    // add the producer if the app is going to publish messages - most apps should publish events
+    // add the consumer if you're going to process events
+    // if you have a consumer, then you need to add event handlers. there are many ways
+    // to do it, but the AddAllEventHandlersFromAssembly is the expected normal use.
     .AddKafkaProducer(builder.Configuration)
-    .AddKafkaConsumer(builder.Configuration);
+    .AddKafkaConsumer(builder.Configuration)
+    .AddAllEventHandlersFromAssembly<Program>();
 
 // DEMO: HealthChecks - this is a built-in .net method.
 // here, you will add health checks specific for your app.

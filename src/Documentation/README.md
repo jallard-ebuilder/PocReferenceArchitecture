@@ -46,6 +46,12 @@ docker-compose restart
 
 # view the containers
 docker-compose ps
+
+# create the topics - these are the topics used by the reference application
+# note that it takes a few seconds for the broker to start. if you send
+# these commands prior to start, it might return an error. if so, try again.
+docker-compose exec broker kafka-topics --bootstrap-server broker:29092 --create --topic demo-topic-1
+docker-compose exec broker kafka-topics --bootstrap-server broker:29092 --create --topic demo-topic-2
 ````
 
 
@@ -57,6 +63,8 @@ These are common commands that I use when working with Docker. This only represe
 NOTE: A `volume` is disk space that can be made available to 0 or more containers. When the containers stop, the data persists. New containers may be attached to the same volume.
 
 Beware that when you delete a volume you are deleting data.
+
+The `-f` parameter prevents confirmation prompts.
 
 ```bash
 # -------------------------------------
@@ -86,7 +94,7 @@ docker volume prune -f`
 # -------------------------------------
 # Prune Everything that's Not Used
 # -------------------------------------
-docker system prune -a --volumes
+docker system prune --volumes -f
 
 # -------------------------------------
 # Docker compose
@@ -109,6 +117,22 @@ docker-compose ps
 
 You may also prune everything at once: [docker system prune](https://docs.docker.com/engine/reference/commandline/system_prune/#examples)
 
+## TODO
 
+- when kafka config is missing, responds with "map" error
+- `enable.auto.commit` must a string of `false`... why doesn't boolean work?
+- health endpoint not in swagger
+  - https://www.codenesium.com/blog/posts/how-to-add-health-checks-asp-net-core-with-swagger-support/
+- need try/catch around service start (for logging). sample code shows `ServiceUtility.RunSafe`, but I couldn't find that... revisit/evaluate
+- throws exception if kafka topic doesn't exist, but keeps running. add configuration to make it optionally crash.
+  - the exception is coming from consumer. we'll see that during startup.
+  - but, producer won't throw an exception until something actually produces, so that'll be at runtime.
+- duplicate event types on handlers result in a DI exception. it should error, but it needs to be a better exception
+- PpmCloudEvent 
+- PPM Cloud Event
+  - is in `PPM.Eventing.Core`, which contains the Dispatcher and Publisher. It's not appropriate for core to reference it, but it must because that's where `PpmCloudEvent` is. We need to move PpmCloudEvent to a different package.
+  - should we default the id to `Guid.NewGuid().ToString()`?
+  - should we default the time to `DateTimeOffset.UtcNow`? (note that the ppm cloud event doc says `.Now`, so need to settle that)
+  - 
 
 
