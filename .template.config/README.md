@@ -1,5 +1,7 @@
 # Reference Architecture Template
 
+See https://github.com/dotnet/templating/wiki for configuration.
+
 ## Installation
 
 To insall the template locally for dotnet new to use execute the following command from the folder that contains the ReferenceArchitecuture.sln file:
