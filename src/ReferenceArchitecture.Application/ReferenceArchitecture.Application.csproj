@@ -10,6 +10,8 @@
     <ItemGroup>
       <PackageReference Include="Ardalis.GuardClauses" Version="4.0.1" />
       <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="librdkafka.redist" Version="1.9.1" />
+      <PackageReference Include="Confluent.Kafka" Version="1.9.0" />
       <PackageReference Include="PPM.Eventing.Kafka.Hosting" Version="1.1.2" />
       <PackageReference Include="PPM.HealthChecks" Version="1.1.2" />
       <PackageReference Include="PPM.WebApi.Logging" Version="1.1.2" />

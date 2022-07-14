@@ -10,7 +10,7 @@ COPY ["ReferenceArchitecture.Core/ReferenceArchitecture.Core.csproj", "Reference
 COPY ["ReferenceArchitecture.Infrastructure/ReferenceArchitecture.Infrastructure.csproj", "ReferenceArchitecture.Infrastructure/"]
 RUN dotnet restore "ReferenceArchitecture.Application/ReferenceArchitecture.Application.csproj"
 COPY . .
-WORKDIR "ReferenceArchitecture.Application"
+WORKDIR /src/ReferenceArchitecture.Application
 RUN dotnet build "ReferenceArchitecture.Application.csproj" -c Release -o /app/build
 
 FROM build AS publish

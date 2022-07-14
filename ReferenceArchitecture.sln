@@ -10,7 +10,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Core"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B07BDAFF-6AA7-4586-902F-B760579E60DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Application.Tests", "ReferenceArchitecture.Application.Tests\ReferenceArchitecture.Application.Tests.csproj", "{0924D98F-6889-4841-BD4F-55259C68B1F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Application.Tests", "tests\ReferenceArchitecture.Application.Tests\ReferenceArchitecture.Application.Tests.csproj", "{0924D98F-6889-4841-BD4F-55259C68B1F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,2 +1,3 @@
-# PocReferenceArchitecture
+# ReferenceArchitecture
+
 PocReferenceArchitecture

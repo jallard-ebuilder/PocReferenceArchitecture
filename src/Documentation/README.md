@@ -1,4 +1,4 @@
-# Reference Architecture
+# ReferenceArchitecture
 
 ## Getting Started
 

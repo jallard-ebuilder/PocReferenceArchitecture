@@ -1,0 +1,17 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Neal Leverenz",
+    "classifications": [
+        "Trimble",
+        "WebApi",
+        "Service"
+    ],
+    "identity": "Trimble.WebApi.Service",
+    "name": "Trimble WebApi Service",
+    "shortName": "refservice",
+    "tags": {
+        "language": "C#",
+        "type": "project"
+    },
+    "sourceName": "ReferenceArchitecture"
+}
