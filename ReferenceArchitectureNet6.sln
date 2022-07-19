@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Documentation", "src\Documentation\Documentation.csproj", "{5EBDE9AB-B954-4D90-B5C3-7F53702E69D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Application", "src\ReferenceArchitecture.Application\ReferenceArchitecture.Application.csproj", "{C392FD3B-A7A7-48EF-9800-981A11DA469D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.WebApi", "src\ReferenceArchitecture.WebApi\ReferenceArchitecture.WebApi.csproj", "{C392FD3B-A7A7-48EF-9800-981A11DA469D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Infrastructure", "src\ReferenceArchitecture.Infrastructure\ReferenceArchitecture.Infrastructure.csproj", "{DB445C45-8154-4023-9287-1E363FF5EAD3}"
 EndProject
@@ -11,6 +11,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B07BDAFF-6AA7-4586-902F-B760579E60DC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Application.Tests", "ReferenceArchitecture.Application.Tests\ReferenceArchitecture.Application.Tests.csproj", "{0924D98F-6889-4841-BD4F-55259C68B1F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArchitecture.Application", "ReferenceArchitecture.Application\ReferenceArchitecture.Application.csproj", "{F69A3B0F-BD45-4DA7-A0FE-D4259529812D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{0924D98F-6889-4841-BD4F-55259C68B1F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0924D98F-6889-4841-BD4F-55259C68B1F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0924D98F-6889-4841-BD4F-55259C68B1F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69A3B0F-BD45-4DA7-A0FE-D4259529812D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69A3B0F-BD45-4DA7-A0FE-D4259529812D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69A3B0F-BD45-4DA7-A0FE-D4259529812D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69A3B0F-BD45-4DA7-A0FE-D4259529812D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0924D98F-6889-4841-BD4F-55259C68B1F8} = {B07BDAFF-6AA7-4586-902F-B760579E60DC}

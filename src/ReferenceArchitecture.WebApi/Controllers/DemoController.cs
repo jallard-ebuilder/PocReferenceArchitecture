@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PPM.Eventing.Core.Publisher;
 using ReferenceArchitecture.Core;
 
-namespace ReferenceArchitecture.Application.Controllers;
+namespace ReferenceArchitecture.Presentation.Controllers;
 
 [ApiController]
 [Route("/api/v1/demo/stuff")]
