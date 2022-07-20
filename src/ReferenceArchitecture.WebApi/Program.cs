@@ -1,8 +1,10 @@
+using System.Text.Json.Serialization;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using PPM.HealthChecks.Utilities;
 using PPM.WebApi.Logging;
 using PPM.WebApi.Logging.Extensions;
+using ReferenceArchitecture.Application.EventHandlers;
 
 const string serviceRootUrl = "/api/v1/demo";
 const string serviceName = "Platform Service Reference Architecture";
@@ -65,7 +67,7 @@ builder.Services
     // to do it, but the AddAllEventHandlersFromAssembly is the expected normal use.
     .AddKafkaProducer(builder.Configuration)
     .AddKafkaConsumer(builder.Configuration)
-    .AddAllEventHandlersFromAssembly<Program>();
+    .AddAllEventHandlersFromAssembly<AllDemoEventHandlers>();
 
 // DEMO: HealthChecks - this is a built-in .net method.
 // here, you will add health checks specific for your app.
@@ -76,7 +78,13 @@ builder.Services
 builder.Services.AddHealthChecks();
 
 // DEMO: Logging - the e-builder logging controller 
-builder.Services.AddControllers().AddLoggingController();
+builder
+    .Services
+    .AddControllers()
+    
+    // use enums as strings rather than ints
+    .AddJsonOptions(json => json.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()))
+    .AddLoggingController();
 
 
 var app = builder.Build();
@@ -111,7 +119,8 @@ app.MapGet("",
         {
             Links = new
             {
-                DemoController = root + "/stuff",
+                __Notes="DEMO links",
+                DemoController = root + "/events",
                 SwaggerJson = root + "/internals/swagger/v1/swagger.json",
                 SwaggerYaml = root + "/internals/swagger/v1/swagger.yaml",
                 SwaggerUi = root + "/internals/swagger",

@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\ReferenceArchitecture.Application\ReferenceArchitecture.Application.csproj" />
       <ProjectReference Include="..\ReferenceArchitecture.Core\ReferenceArchitecture.Core.csproj" />
       <ProjectReference Include="..\ReferenceArchitecture.Infrastructure\ReferenceArchitecture.Infrastructure.csproj" />
     </ItemGroup>

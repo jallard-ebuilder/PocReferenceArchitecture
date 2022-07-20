@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Ardalis.GuardClauses;
 using Microsoft.AspNetCore.Mvc;
 using PPM.Eventing.Core.Publisher;
@@ -6,7 +7,7 @@ using ReferenceArchitecture.Core;
 namespace ReferenceArchitecture.Presentation.Controllers;
 
 [ApiController]
-[Route("/api/v1/demo/stuff")]
+[Route("/api/v1/demo/events")]
 public class DemoController : Controller
 {
     private readonly IAsyncEventPublisher _publisher;
@@ -42,11 +43,11 @@ public class DemoController : Controller
     /// <param name="message"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<PublishResult> SendAMessage(TestEventTypes testEventType, string message)
+    public async Task<bool> SendAMessage(TestEventTypes testEventType, string message)
     {
-        var m = new { message };
-        var evt = EventUtility.Create(testEventType.ToString());
+        var m = JsonSerializer.SerializeToElement(new { message });
+        var evt = EventUtility.Create(testEventType.ToString(), m);
         var result = await _publisher.PublishAsync(evt, "demo-topic-1");
-        return result;
+        return result.Success;
     }
 }
